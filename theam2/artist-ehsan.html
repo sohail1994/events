@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ehsan Asgar - Singer | Weez Entertainment</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="assets/icons/bootstrap-icons.css">
+    
+    <!-- Poppins Font -->
+    <link rel="stylesheet" href="assets/fonts/poppins/poppins.css">
+    
+    <style>
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --accent-color: #ff1744;
+            --party-pink: #ff4081;
+            --party-purple: #9c27b0;
+            --party-yellow: #ffeb3b;
+            --dark-color: #1a1a1a;
+            --light-color: #fff5f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Hero Section */
+        .artist-hero {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.85) 0%, rgba(247, 147, 30, 0.85) 50%, rgba(255, 64, 129, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .artist-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .artist-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .artist-hero-image {
+            max-width: 400px;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: block;
+        }
+        
+        .artist-hero-image[src=""],
+        .artist-hero-image:not([src]) {
+            display: none;
+        }
+        
+        .artist-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: slideUp 0.8s ease, float 3s ease-in-out infinite;
+            animation-delay: 0s, 1s;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .artist-hero .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--dark-color);
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .song-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .song-list li {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: var(--light-color);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .song-list li span {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .tech-rider {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .tech-rider h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-rider ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tech-rider li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #475569;
+        }
+        
+        .tech-rider li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .artist-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-stars"></i> Weez Entertainment</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#artists">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="artist-hero">
+        <div class="container">
+            <div style="text-align: left; margin-bottom: 2rem;">
+                <a href="index.html#artists" style="color: white; text-decoration: none; opacity: 0.9; font-size: 0.95rem;">
+                    <i class="bi bi-arrow-left"></i> Back to Artists
+                </a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ehsan Asgar" class="artist-hero-image" onerror="this.style.display='none';">
+            <h1>EHSAN ASGAR</h1>
+            <p class="subtitle">Singer • Indian Idol Contestant</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">About Ehsan Asgar</h2>
+                    <div class="info-card">
+                        <p style="font-size: 1.1rem; color: #64748b; line-height: 1.8;">
+                            Ehsan Asgar, a talented singer from Poonch, impressed on "Indian Idol" Season 9 with his soulful voice. Despite not winning, his hit songs like "Ali Maula" and "Pachtaoge" showcase his emotional depth and promise as a rising star.
+                        </p>
+                        <p style="margin-top: 1rem;">
+                            <a href="https://ehsanasgar.com/" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">
+                                <i class="bi bi-globe"></i> Visit Official Website
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="content-section" style="background: var(--light-color);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="number">84K</div>
+                            <div class="label">Followers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number">6.6K</div>
+                            <div class="label">Subscribers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number">321K</div>
+                            <div class="label">Total Followers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Songs Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">Popular Songs</h2>
+                    <div class="info-card">
+                        <ul class="song-list">
+                            <li>
+                                <div>
+                                    <strong>Nafrat</strong>
+                                </div>
+                                <span><i class="bi bi-play-circle"></i> 1.1M views</span>
+                            </li>
+                            <li>
+                                <div>
+                                    <strong>Ali Maula</strong>
+                                </div>
+                                <span><i class="bi bi-play-circle"></i> 524K views</span>
+                            </li>
+                            <li>
+                                <div>
+                                    <strong>Pachtaoge</strong>
+                                </div>
+                                <span><i class="bi bi-play-circle"></i> 481K views</span>
+                            </li>
+                            <li>
+                                <div>
+                                    <strong>Eshqam</strong>
+                                </div>
+                                <span><i class="bi bi-play-circle"></i> 1.1K views</span>
+                            </li>
+                            <li>
+                                <div>
+                                    <strong>Aadab-E-Mohabbat</strong>
+                                </div>
+                                <span><i class="bi bi-play-circle"></i> 363K views</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press & Media Section -->
+    <section class="content-section" style="background: var(--light-color);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">Press & Media Engagements</h2>
+                    <div class="info-card">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Dubai's Nawishta Felicitates Kashmiri Singer Ehsan Asgar For Contribution</strong>
+                                <br><small style="color: #64748b;">https://www.aninews.in/topic/ehsan-asgar/</small>
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Kashmiri Youth Ehsan Asghar Breaks Down After Selection In Next Level Of 'Indian Idol', Says 'I Love India'</strong>
+                                <br><small style="color: #64748b;">https://www.aninews.in/topic/ehsan-asgar/</small>
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>J&K Youth Ehsan Asgar Selected Among Top 40 In Indian Idol</strong>
+                                <br><small style="color: #64748b;">https://excelsiornews.com/jk-youth-ehsan-asgar-selected-among-top-40-indian-idol/</small>
+                            </li>
+                            <li style="padding: 0.75rem 0;">
+                                <strong>Everyone Wants To Feed Their Stomachs But I Want To Feed My Dreams: Ehsan Asgar</strong>
+                                <br><small style="color: #64748b;">https://refugeemessage.com/index.php/2021/05/05/everyone-wants-to-feed-their-stomachs-but-i-want-to-feed-my-dreams-</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Rider Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">Tech Rider & Travel Requirements</h2>
+                    
+                    <div class="tech-rider">
+                        <h4><i class="bi bi-mic"></i> PA Sound Requirements</h4>
+                        <ul>
+                            <li>PA Sound As Per Venue - DNB</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-rider">
+                        <h4><i class="bi bi-speaker"></i> On Stage Requirements</h4>
+                        <ul>
+                            <li>4 top line Array</li>
+                            <li>2 bass DNB / RCF Sound</li>
+                            <li>4 monitor DNB / RCF</li>
+                            <li>2 Vocal mic Sennheiser</li>
+                            <li>2 input for keyboard</li>
+                            <li>2+2 input sampler</li>
+                            <li>2 mic for table</li>
+                            <li>2 Dholak mic</li>
+                            <li>1 input for guitar</li>
+                            <li>Stage - 16 x 10</li>
+                            <li>Notes stand Mandatory</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-rider">
+                        <h4><i class="bi bi-clock"></i> Performance Timings</h4>
+                        <ul>
+                            <li>Live Band: 70 To 90 Minutes</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-rider">
+                        <h4><i class="bi bi-airplane"></i> Travel With Band</h4>
+                        <ul>
+                            <li>10 Economy Stay</li>
+                            <li>6 Room With F&B</li>
+                            <li>Local Transport: 1 Luxury Car, 2 Innova</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; text-align: center;">
+                        <h3 style="color: white; margin-bottom: 1rem;"><i class="bi bi-telephone"></i> Inquiry Number For Booking</h3>
+                        <p style="font-size: 1.5rem; font-weight: 600; margin: 0;">+91 8800604706</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Viewer Section -->
+    <section class="content-section" style="background: var(--light-color);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">View Full Profile</h2>
+                    <p style="color: #64748b; margin-bottom: 2rem;">
+                        Download or view the complete artist profile PDF
+                    </p>
+                    <a href="Ehsaan asgar  profile –--.pdf" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="bi bi-file-earmark-pdf"></i> View Profile PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="content-section" style="background: linear-gradient(135deg, var(--dark-color), #334155); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Book Ehsan Asgar</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                Experience the soulful voice that impressed Indian Idol judges and audiences alike.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h5><i class="bi bi-stars"></i> Weez Entertainment</h5>
+                    <p>Your trusted partner for exceptional events and entertainment experiences.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end mb-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0" style="opacity: 0.7;">&copy; 2024 Weez Entertainment. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

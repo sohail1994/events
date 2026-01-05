@@ -120,8 +120,9 @@
             z-index: 10;
             min-height: 100vh;
             display: flex;
-            align-items: flex-start;
-            padding-top: 100px;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
         }
         
         .hero-tag {
@@ -144,6 +145,27 @@
             display: inline-block;
         }
         
+        @media (max-width: 768px) {
+            .hero .container {
+                padding-top: 100px;
+            }
+            
+            .hero-tag p {
+                font-size: 1.8rem;
+                font-weight: 700;
+                background: rgba(0, 0, 0, 0.75);
+                text-shadow: 3px 3px 15px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 0, 0, 0.7);
+                padding: 25px 30px;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
+            }
+            
+            .hero-stats {
+                font-size: 0.8em !important;
+                font-weight: 500;
+            }
+        }
+        
         .hero-stats {
             font-size: 0.65em !important;
             font-weight: 400;
@@ -151,12 +173,16 @@
         }
         
         @media (max-width: 768px) {
+            .hero .container {
+                padding-top: 100px;
+            }
+            
             .hero-tag p {
-                font-size: 1.1rem;
+                font-size: 1.6rem;
             }
             
             .hero-stats {
-                font-size: 0.6em !important;
+                font-size: 0.75em !important;
             }
         }
         
@@ -804,7 +830,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="Logo1.jpg" alt="Weez Entertainment Logo"><span class="navbar-brand-text">Weez Entertainment</span></a>
+            <a class="navbar-brand" href="#"><img src="Logo1.jpg" alt="Weez Entertainment Logo"><span class="navbar-brand-text"> </span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>

@@ -52,7 +52,24 @@
         .navbar-brand {
             font-weight: 700;
             font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .navbar-brand img {
+            height: 70px;
+            width: auto;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.1);
+        }
+        
+        .navbar-brand-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -67,6 +84,14 @@
         
         .nav-link:hover {
             color: var(--primary-color) !important;
+        }
+        
+        .navbar-toggler {
+            border-color: rgba(255, 107, 53, 0.5);
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 107, 53, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
         
         /* Hero Section */
@@ -315,20 +340,20 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="bi bi-stars"></i> Weez Entertainment</a>
+            <a class="navbar-brand" href="index.html"><img src="Logo1.jpg" alt="Weez Entertainment Logo"><span class="navbar-brand-text">Weez Entertainment</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#services">Services</a>
+                        <a class="nav-link" href="index.html#home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#artists">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#contact">Contact</a>
@@ -535,7 +560,7 @@
             <hr style="border-color: rgba(255,255,255,0.1);">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="mb-0" style="opacity: 0.7;">&copy; 2024 Weez Entertainment. All rights reserved.</p>
+                    <p class="mb-0" style="opacity: 0.7;">&copy; 2026 Weez Entertainment. All rights reserved.</p>
                 </div>
             </div>
         </div>
